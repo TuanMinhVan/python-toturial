@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+firebase-admin
+pymongo
+pydantic
+python-jose
+python-multipart
+passlib
+bcrypt

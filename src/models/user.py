@@ -1,20 +1,38 @@
+from bson import ObjectId
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 
 class User(BaseModel):
-    id: str = Field(..., alias="_id")
-    firstName: str
-    lastName: str
-    maidenName: Optional[str] = None
-    age: int = Field(..., gt=0)
-    gender: str
+    id: Optional[str] = Field(default_factory=lambda: str(ObjectId()), alias="_id")
     email: EmailStr
-    phone: str
-    username: str
+    password: str|None = None
+    firstName: str|None = None
+    lastName: str|None = None
+    maidenName: str|None = None
+    age: Optional[int] = Field(None, gt=0)
+    gender: str|None = None
+    phone: str|None = None
+    username: str|None = None
+    birthDate: str|None = None
+    image: str|None = None
+    bloodGroup: str|None = None
+    height: Optional[float] = 0
+    weight: Optional[float] = 0
+    eyeColor: str|None = None
+    class Config:
+        populate_by_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+
+
+
+class UserLogin(BaseModel):
+    email: EmailStr
     password: str
-    birthDate: str
-    image: Optional[str] = None
-    bloodGroup: Optional[str] = None
-    height: Optional[float] = None
-    weight: Optional[float] = None
-    eyeColor: Optional[str] = None
+
+
+
+
+class UserRegister(BaseModel):
+    email: EmailStr
+    password: str

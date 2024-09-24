@@ -3,6 +3,7 @@
         "bson",
         "fastapi",
         "jsonable",
+        "passlib",
         "pydantic",
         "pymongo"
     ]

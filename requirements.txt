@@ -1,9 +1,8 @@
-fastapi
-uvicorn
-firebase-admin
-pymongo
-pydantic
-python-jose
-python-multipart
-passlib
-bcrypt
+fastapi==0.115.0
+uvicorn==0.24.0
+pymongo==4.9.1
+pydantic==2.6.4
+python-jose==3.3.0
+python-multipart==0.0.5
+passlib==1.7.4
+bcrypt==4.0.1

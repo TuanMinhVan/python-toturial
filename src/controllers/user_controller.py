@@ -15,7 +15,7 @@ def get_list_users_endpoint(skip: int = 0, limit: int = 10, current_user: User =
 
 @router.get("/me")
 def get_current_user_endpoint(current_user: User = Depends(get_current_user)):
-    return get_user(current_user['_id'], current_user)
+    return get_user(current_user.id, current_user)
 
 
 @router.get("/{user_id}")

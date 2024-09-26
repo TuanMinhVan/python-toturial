@@ -6,5 +6,6 @@
         "passlib",
         "pydantic",
         "pymongo"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }

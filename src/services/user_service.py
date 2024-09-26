@@ -100,14 +100,5 @@ def get_user_by_id(user_id: str) -> User :
 
 
 
-def delete_user(email: str):
-    result = collection.delete_one({"email": email})
-    if result.deleted_count == 0:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found"
-        )
-    return ResponseBase(
-        status=200,
-        message="Delete user successful"
-    )
+def delete_user(email: str)-> int:
+    return collection.delete_one({"email": email}).deleted_count
